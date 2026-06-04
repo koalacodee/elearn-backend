@@ -21,7 +21,7 @@ export class DrizzleService implements OnModuleInit {
   private migrationsFolder: string | null;
   private isBun: boolean = typeof Bun !== 'undefined';
   constructor(private config: ConfigService) {
-    let url = this.config.getOrThrow<string>('drizzle.databaseUrl');
+    const url = this.config.getOrThrow<string>('drizzle.databaseUrl');
     if (this.isBun) {
       const client = new Bun.SQL(url);
       this.db = drizzle({ client, schema });

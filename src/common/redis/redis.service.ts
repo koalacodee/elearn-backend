@@ -143,7 +143,7 @@ export class RedisService implements OnModuleDestroy, OnModuleInit {
       const { createClient } = await import('redis');
       const client = createClient({ url });
       await client.connect();
-      this.state = { type: 'node', client: client as RedisClientType };
+      this.state = { type: 'node', client: client };
     }
   }
 
